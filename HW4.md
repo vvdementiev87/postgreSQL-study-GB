@@ -79,3 +79,21 @@ JOIN photo
 ON photo.id=users.main_photo_id
 LIMIT 10;
 -- общее табличное выражение end
+
+-- объединение JOIN start
+SELECT
+video.id AS video_id,
+video.owner_id,
+users.first_name,
+users.last_name,
+video.size,
+video.url AS video_url,
+photo.url AS photo_url
+FROM video
+JOIN users
+ON users.id=video.owner_id
+JOIN photo
+ON photo.id=users.main_photo_id
+ORDER BY video.size DESC
+LIMIT 10;
+-- объединение JOIN end
